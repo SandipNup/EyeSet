@@ -45,3 +45,8 @@ class ImageData(models.Model):
     #     if not self.image_as_base64():
     #         raise Exception('Could not create base64 of image')
     #     super(ImageData, self).save(*args, **kwargs)
+
+
+class DeletedImage(models.Model):
+    image_id = models.IntegerField()
+

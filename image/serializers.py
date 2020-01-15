@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from image.models import ImageData
+from image.models import ImageData, DeletedImage
 import base64
 from PIL import Image
 import os
@@ -24,7 +24,7 @@ class ImageSerializer(serializers.ModelSerializer):
     #     print()
         image_url = instance.image.url[1:]
         print(image_url)
-    #
+
         with open(image_url, "rb") as img_file:
             encoded_string = base64.b64encode(img_file.read())
             decoded_string = encoded_string.decode("utf-8")
@@ -39,3 +39,9 @@ class ImageSerializer(serializers.ModelSerializer):
         decode = 'data:image/%s;base64,%s' % (image_extension, decoded_string)
 
         return decode
+
+class DeletedImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DeletedImage
+        fields = '__all__'
+
