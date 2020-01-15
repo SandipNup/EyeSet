@@ -30,6 +30,9 @@ class DeletedImageViewSet(viewsets.ModelViewSet):
     permission_classes = []
 
 
-# class TestViewSet(APIView):
-#
-#     def get(self, request):
+class TestViewSet(APIView):
+
+    def get(self, request):
+        c = ImageData.objects.all().count()
+
+        return Response({'count':c})
