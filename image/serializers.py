@@ -10,7 +10,7 @@ class ImageSerializer(serializers.ModelSerializer):
     decode = serializers.SerializerMethodField()
     class Meta:
         model = ImageData
-        fields = ('name', 'image', 'decode')
+        fields = ('id','name', 'image', 'decode')
 
     def get_decode(self, instance):
         # with open('media/' + str(self.image), "rb") as img_file:
