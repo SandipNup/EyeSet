@@ -18,7 +18,7 @@ class ImageData(models.Model):
 
     name = models.CharField(max_length=500)
     image = models.FileField()
-    ward = models.CharField(choices=WARD_CHOICES, max_length=15, blank=True, null=True)
+    ward = models.CharField(choices=WARD_CHOICES, default='0', max_length=15, blank=True, null=True)
 
 
     def __str__(self):
