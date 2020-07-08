@@ -16,7 +16,8 @@ class ImageViewSet(viewsets.ModelViewSet):
     permission_classes = []
 
     def get_queryset(self):
-        queryset = ImageData.objects.filter(Q(ward=self.kwargs['ward']) | Q(ward='0'))
+        # queryset = ImageData.objects.filter(Q(ward=self.kwargs['ward']) | Q(ward='0'))
+        queryset = ImageData.objects.filter(Q(ward=self.kwargs['ward']))
         return queryset
 
     def destroy(self, request, *args, **kwargs):
